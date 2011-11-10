@@ -22,6 +22,7 @@
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
+(fset 'yes-or-no-p 'y-or-n-p)
 
 ;; Trailing white-space. Just say no.
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
