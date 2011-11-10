@@ -1,0 +1,9 @@
+auto-save-list
+backups
+*~
+places
+session.*
+tramp
+elpa
+emms
+*.elc
