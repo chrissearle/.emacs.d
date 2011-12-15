@@ -1,3 +1,6 @@
+(setq dotfiles-dir (file-name-directory
+                    (or (buffer-file-name) load-file-name)))
+
 ;; Always display line and column numbers
 (setq line-number-mode t)
 (setq column-number-mode t)
@@ -28,7 +31,7 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; Load path
-(add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'load-path dotfiles-dir)
 
 (require 'orgmode)
 (when (equal system-type 'darwin)
@@ -39,3 +42,6 @@
 (setq uniquify-buffer-name-style 'forward)
 
 (require 'dired-x)
+
+(setq backup-directory-alist `(("." . ,(expand-file-name
+                                        (concat dotfiles-dir "backups")))))
