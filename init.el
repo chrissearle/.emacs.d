@@ -35,6 +35,9 @@
 ;; Load path
 (add-to-list 'load-path dotfiles-dir)
 
+;; Encryption
+(require 'encryption)
+
 ;; Org
 (require 'orgmode)
 
