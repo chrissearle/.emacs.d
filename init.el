@@ -45,3 +45,6 @@
 
 (setq backup-directory-alist `(("." . ,(expand-file-name
                                         (concat dotfiles-dir "backups")))))
+
+(put 'downcase-region 'disabled nil)
+(put 'narrow-to-region 'disabled nil)
