@@ -1,3 +1,5 @@
+;; With lots taken from https://github.com/magnars/.emacs.d ;)
+
 (setq dotfiles-dir (file-name-directory
                     (or (buffer-file-name) load-file-name)))
 
@@ -33,7 +35,10 @@
 ;; Load path
 (add-to-list 'load-path dotfiles-dir)
 
+;; Org
 (require 'orgmode)
+
+;; Mac
 (when (equal system-type 'darwin)
   (require 'mac))
 
@@ -41,10 +46,13 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
+;; Dired
 (require 'dired-x)
 
+;; Backups
 (setq backup-directory-alist `(("." . ,(expand-file-name
                                         (concat dotfiles-dir "backups")))))
 
+;; Remove restrictions
 (put 'downcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
