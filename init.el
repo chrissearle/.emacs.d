@@ -41,9 +41,20 @@
 ;; Org
 (require 'orgmode)
 
+;; Groovy/Gradle
+(require 'groovy-init)
+
 ;; Mac
 (when (equal system-type 'darwin)
   (require 'mac))
+
+;; Mustache
+(require 'mustache-mode)
+(add-to-list 'auto-mode-alist '("\\.mustache$" . mustache-mode))
+
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+
 
 ;; Add parts of each file's directory to the buffer name if not unique
 (require 'uniquify)
