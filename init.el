@@ -1,3 +1,5 @@
+;; With lots taken from https://github.com/magnars/.emacs.d ;)
+
 (setq dotfiles-dir (file-name-directory
                     (or (buffer-file-name) load-file-name)))
 
@@ -33,19 +35,39 @@
 ;; Load path
 (add-to-list 'load-path dotfiles-dir)
 
+;; Encryption
+(require 'encryption)
+
+;; Org
 (require 'orgmode)
+
+;; Groovy/Gradle
+(require 'groovy-init)
+
+;; Mac
 (when (equal system-type 'darwin)
   (require 'mac))
+
+;; Mustache
+(require 'mustache-mode)
+(add-to-list 'auto-mode-alist '("\\.mustache$" . mustache-mode))
+
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+
 
 ;; Add parts of each file's directory to the buffer name if not unique
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
+;; Dired
 (require 'dired-x)
 
+;; Backups
 (setq backup-directory-alist `(("." . ,(expand-file-name
                                         (concat dotfiles-dir "backups")))))
 
+;; Remove restrictions
 (put 'downcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
 
